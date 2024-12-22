@@ -1,0 +1,96 @@
+﻿<Window x:Class="POLET.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLET"
+        mc:Ignorable="d"
+        Title="ПОЛЁТ" Height="1080" Width="1920" WindowState="Maximized" ResizeMode="NoResize" Background="#FF85DCE2">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="472*"/>
+            <RowDefinition Height="593*"/>
+        </Grid.RowDefinitions>
+        <Button Background="#FF85DCE2" FontSize="19" FontFamily="./Fonts/#Montserrat" x:Name="AdminLoginButton" Content="Вход для администатора" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="256" Height="36" Margin="10,15,0,0" Click="AdminLoginButton_Click" />
+        <Label FontFamily="./Fonts/#Montserrat SemiBold" HorizontalAlignment="Center" FontSize="95" Grid.RowSpan="2">ПОЛЁТ</Label>
+        <Label FontFamily="./Fonts/#Montserrat" HorizontalAlignment="Center" FontSize="20.2" Margin="0,94,0,0" Grid.RowSpan="2">поиск и бронирование билетов</Label>
+        <Label FontFamily="./Fonts/#Montserrat" FontSize="28" Content="Откуда:" HorizontalAlignment="Left" Margin="280,138,0,0" VerticalAlignment="Top"/>
+        <TextBox FontFamily="./Fonts/#Montserrat" FontSize="30"  x:Name="WhereFromBox" HorizontalAlignment="Left" Height="38" Margin="441,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" BorderBrush="#FF707070">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label FontFamily="./Fonts/#Montserrat" FontSize="28" Content="Куда:" HorizontalAlignment="Left" Margin="280,202,0,0" VerticalAlignment="Top"/>
+        <TextBox FontFamily="./Fonts/#Montserrat" FontSize="30"  x:Name="WhereToBox" HorizontalAlignment="Left" Height="38" Margin="441,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" BorderBrush="#FF707070">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label FontFamily="./Fonts/#Montserrat" FontSize="28" Content="Количество билетов:" HorizontalAlignment="Left" Margin="280,266,0,0" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Margin="603,248,1175,142">
+            <TextBox FontFamily="./Fonts/#Montserrat" x:Name="NumericTextBox" Text="1" FontSize="27" Width="50" Height="35" TextAlignment="Center" BorderBrush="#FF707070">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button Content="▲" Width="35" Height="35" Click="IncreaseButton_Click" BorderBrush="#FF707070"/>
+            <Button Content="▼" Width="35" Height="35" Click="DecreaseButton_Click" BorderBrush="#FF707070"/>
+        </StackPanel>
+        <Label FontFamily="./Fonts/#Montserrat" FontSize="28" Content="Дата вылета:" HorizontalAlignment="Left" Margin="280,331,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DatePicker" FontFamily="../Fonts/#Montserrat" SelectedDate="{Binding SelectedDate}" FontSize="23" Margin="512,336,1192,535" IsTodayHighlighted="False" BorderBrush="#FF85DCE2" Grid.RowSpan="2"/>
+        <Button Background="#FFFFBE49" FontSize="28" FontFamily="./Fonts/#Montserrat SemiBold" x:Name="SearchButton" Content="Найти" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="157" Height="50" Margin="280,384,0,0" Click="SearchButton_Click" />
+        <Label FontFamily="./Fonts/#Montserrat" FontSize="28" Content="Имя:" HorizontalAlignment="Left" Margin="1181,138,0,0" VerticalAlignment="Top"/>
+        <TextBox FontFamily="./Fonts/#Montserrat" FontSize="30"  Name="NameBox" HorizontalAlignment="Left" Height="38" Margin="1338,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" BorderBrush="#FF707070">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label FontFamily="./Fonts/#Montserrat" FontSize="28" Content="Фамилия:" HorizontalAlignment="Left" Margin="1181,202,0,0" VerticalAlignment="Top"/>
+        <TextBox FontFamily="./Fonts/#Montserrat" FontSize="30"  Name="SurnameBox" HorizontalAlignment="Left" Height="38" Margin="1338,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" BorderBrush="#FF707070">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label FontFamily="./Fonts/#Montserrat" FontSize="28" Content="Отчество:" HorizontalAlignment="Left" Margin="1181,266,0,0" VerticalAlignment="Top"/>
+        <TextBox FontFamily="./Fonts/#Montserrat" FontSize="30"  Name="PatronymicBox" HorizontalAlignment="Left" Height="38" Margin="1338,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" BorderBrush="#FF707070">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label FontFamily="./Fonts/#Montserrat" FontSize="28" Content="Почта:" HorizontalAlignment="Left" Margin="1181,325,0,0" VerticalAlignment="Top"/>
+        <TextBox FontFamily="./Fonts/#Montserrat" FontSize="30"  Name="MailBox" HorizontalAlignment="Left" Height="38" Margin="1338,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" BorderBrush="#FF707070">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="9"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Button Background="#FFFFBE49" FontSize="28" FontFamily="./Fonts/#Montserrat SemiBold" x:Name="ReservationButton" Content="Забронировать" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="281" Height="50" Margin="1338,384,0,0" Click="ReservationButton_Click" />
+        <DataGrid CanUserAddRows="False" x:Name="FlightsDataGrid" ItemsSource="{Binding flights}" AutoGenerateColumns="False" Margin="0,10,0,0" Background="#FF85DCE2" Grid.Row="1" IsReadOnly="True" FontSize="20" FontFamily="./Fonts/#Montserrat">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер рейса" Binding="{Binding idflight}" IsReadOnly="True"  />
+                <DataGridTextColumn Header="Свободные места" Binding="{Binding numberseats}" />
+                <DataGridTextColumn Header="Откуда" Binding="{Binding fromflight}" />
+                <DataGridTextColumn Header="Куда" Binding="{Binding whereflight}" />
+                <DataGridTextColumn Header="Дата отправления" Binding="{Binding datefrom, StringFormat={}{0:dd.MM.yyyy}}" />
+                <DataGridTextColumn Header="Время отправления" Binding="{Binding timefrom}" />
+                <DataGridTextColumn Header="Дата прибытия" Binding="{Binding datewhere,StringFormat={}{0:dd.MM.yyyy}}" />
+                <DataGridTextColumn Header="Время прибытия" Binding="{Binding timewhere}" />
+                <DataGridTextColumn Header="Пересадки" Binding="{Binding Transfers.namecity}" />
+                <DataGridTextColumn Header="Цена" Binding="{Binding price}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

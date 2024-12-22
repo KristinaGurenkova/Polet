@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POLET", "POLET\POLET.csproj", "{F3247801-0F39-4B10-94F1-EAD534E9878D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3247801-0F39-4B10-94F1-EAD534E9878D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3247801-0F39-4B10-94F1-EAD534E9878D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3247801-0F39-4B10-94F1-EAD534E9878D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3247801-0F39-4B10-94F1-EAD534E9878D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {382B7E65-335E-4824-BB82-72B0779C5A63}
+	EndGlobalSection
+EndGlobal

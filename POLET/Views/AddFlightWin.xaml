@@ -1,0 +1,76 @@
+﻿<Window x:Class="POLET.Views.AddFlightWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLET.Views"
+        mc:Ignorable="d"
+        Title="Добавление рейса" Height="675" Width="400" ResizeMode="NoResize" Background="#FF85DCE2">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Откуда:" TextAlignment="Center" Margin="0,7,0,0" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <TextBox x:Name="WhereFromBox" Margin="0,5,0,0" TextWrapping="Wrap" FontFamily="../Fonts/#Montserrat" Height="30" Width="300" FontSize="21">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBlock Text="Куда:" TextAlignment="Center" Margin="0,7,0,0" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <TextBox x:Name="WhereToBox" Margin="0,5,0,0" TextWrapping="Wrap" FontFamily="../Fonts/#Montserrat" Height="30" Width="300" FontSize="21">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBlock Text="Дата вылета:" TextAlignment="Center" Margin="0,7,0,0" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <DatePicker x:Name="DatePicker" FontFamily="../Fonts/#Montserrat" SelectedDate="{Binding SelectedDate}" FontSize="23" IsTodayHighlighted="False" BorderBrush="#FF85DCE2" Height="37" Width="297"/>
+            <TextBlock Text="Время вылета:" TextAlignment="Center" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <TextBox x:Name="TimeFromBox" TextWrapping="Wrap" FontFamily="../Fonts/#Montserrat" Height="30" Width="300" FontSize="21">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBlock Text="Дата прибытия:" TextAlignment="Center" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <DatePicker x:Name="DatePicker2" FontFamily="../Fonts/#Montserrat" SelectedDate="{Binding SelectedDate}" FontSize="23" IsTodayHighlighted="False" BorderBrush="#FF85DCE2" Height="37" Width="297"/>
+            <TextBlock Text="Время прибытия:" TextAlignment="Center" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <TextBox x:Name="TimeWhereBox" TextWrapping="Wrap" FontFamily="../Fonts/#Montserrat" Height="30" Width="300" FontSize="21">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBlock Text="Количество мест:" TextAlignment="Center" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <TextBox x:Name="CountSeats" TextWrapping="Wrap" FontFamily="../Fonts/#Montserrat" Height="30" Width="300" FontSize="21">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBlock Text="Пересадки:" TextAlignment="Center" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <TextBox x:Name="TransfersBox" TextWrapping="Wrap" FontFamily="../Fonts/#Montserrat" Height="30" Width="300" FontSize="21">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBlock Text="Цена:" TextAlignment="Center" FontFamily="../Fonts/#Montserrat" FontSize="22"/>
+            <TextBox x:Name="PriceBox" TextWrapping="Wrap" FontFamily="../Fonts/#Montserrat" Height="30" Width="300" FontSize="21">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button Background="#FFFFBE49" FontSize="21" FontFamily="../Fonts/#Montserrat SemiBold" x:Name="AddButton" Content="Добавить рейс" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="200" Height="40"  Margin="98 20 0 0" Click="AddButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="POLET.Views.AuthorizationWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLET.Views"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="360" Width="400" ResizeMode="NoResize" Background="#FF85DCE2">
+    <Grid>
+        <StackPanel>
+            <TextBlock FontFamily="../Fonts/#Montserrat Black" TextAlignment="Center" FontSize="22" Margin="0,44,0,0">АВТОРИЗАЦИЯ</TextBlock>
+            <TextBlock FontFamily="../Fonts/#Montserrat" FontSize="16" TextAlignment="Center" Margin="0,35,0,0">Логин:</TextBlock>
+            <TextBox FontFamily="../Fonts/#Montserrat" x:Name="loginBox" Height="30" Width="300" FontSize="20">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="9"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBlock FontFamily="../Fonts/#Montserrat" FontSize="16" TextAlignment="Center" Margin="0,5,0,0">Пароль:</TextBlock>
+            <PasswordBox x:Name="passBox" Height="30" Width="300" FontSize="19">
+                <PasswordBox.Template>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border CornerRadius="9" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </PasswordBox.Template>
+            </PasswordBox>
+            <Button Background="#FFFFBE49" FontFamily="../Fonts/#Montserrat SemiBold" x:Name="logIn" Height="30" Width="300" Margin="0 20 0 0" FontSize="18" Click="logIn_Click">Войти</Button>
+        </StackPanel>
+    </Grid>
+</Window>
