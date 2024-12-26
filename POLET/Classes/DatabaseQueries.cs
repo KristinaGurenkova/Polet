@@ -56,15 +56,12 @@ namespace POLET.Classes
 
 		public static ObservableCollection<Flights> FindFlightsBySubstring(string fromFlight, string whereFlight, string dateFrom, string numberSeats)
 		{
-				// Создание коллекции для хранения найденных рейсов
 				ObservableCollection<Flights> foundFlights = new ObservableCollection<Flights>();
 
-				// Создание и открытие соединения с базой данных
 				using (var npgsqlConnection = new NpgsqlConnection(connectionString))
 				{
 					npgsqlConnection.Open();
 
-					// Создание команды SQL для поиска рейсов по критериям
 					var command = npgsqlConnection.CreateCommand();
 					command.CommandText = @"SELECT flights.*, transfers.namecity 
 					FROM public.flights
@@ -74,13 +71,11 @@ namespace POLET.Classes
 					AND datefrom = @dateFrom::DATE 
 					AND numberseats >= @numberSeats";
 
-					// Добавление параметров в команду SQL
 					command.Parameters.AddWithValue("@fromFlight", "%" + fromFlight + "%");
 					command.Parameters.AddWithValue("@whereFlight", "%" + whereFlight + "%");
 					command.Parameters.AddWithValue("@dateFrom", dateFrom);
 					command.Parameters.AddWithValue("@numberSeats", int.Parse(numberSeats));
 
-					// Выполнение команды и обработка результатов
 					using (var reader = command.ExecuteReader())
 					{
 						while (reader.Read())
@@ -109,12 +104,10 @@ namespace POLET.Classes
 		{
 			bool success = false;
 
-			// Создание и открытие соединения с базой данных
 			using (var npgsqlConnection = new NpgsqlConnection(connectionString))
 			{
 				npgsqlConnection.Open();
 
-				// Создание команды SQL для обновления количества свободных мест
 				var command = npgsqlConnection.CreateCommand();
 				command.CommandText = "UPDATE public.flights SET numberSeats = numberSeats - 1 WHERE idFlight = @flightId AND numberSeats > 0";
 				command.Parameters.AddWithValue("@flightId", flightId);
@@ -134,20 +127,16 @@ namespace POLET.Classes
 		public static bool AddPassenger(Passengers passenger)
 		{
 			bool success = false;
-
-			// Создание и открытие соединения с базой данных
 			using (var npgsqlConnection = new NpgsqlConnection(connectionString))
 			{
 				npgsqlConnection.Open();
 
-				// Создание команды SQL для вставки данных пассажира
 				var command = npgsqlConnection.CreateCommand();
 				command.CommandText = @"
 				INSERT INTO public.passengers (namePassenger, surnamePassenger, patronymicPassenger, counttickets, idflights, email)
 				VALUES (@name, @surname, @patronymic, @counttickets, @idflights, @email)
 				RETURNING idPassenger";
 
-				// Добавление параметров в команду SQL
 				command.Parameters.AddWithValue("@name", passenger.namepassenger);
 				command.Parameters.AddWithValue("@surname", passenger.surnamepassenger);
 				command.Parameters.AddWithValue("@patronymic", string.IsNullOrEmpty(passenger.patronymicpassenger) ? DBNull.Value : (object)passenger.patronymicpassenger);
@@ -157,7 +146,6 @@ namespace POLET.Classes
 
 				try
 				{
-					// Выполнение команды и получение idPassenger
 					var reader = command.ExecuteReader();
 					if (reader.Read())
 					{
@@ -176,31 +164,25 @@ namespace POLET.Classes
 		{
 			bool success = false;
 
-			// Создание и открытие соединения с базой данных
 			using (var npgsqlConnection = new NpgsqlConnection(connectionString))
 			{
 				npgsqlConnection.Open();
 
-				// Создание команды SQL для удаления пассажиров, связанных с рейсом
 				var command = npgsqlConnection.CreateCommand();
 				command.CommandText = @"
 				DELETE FROM public.passengers
 				WHERE idflights = @idFlights";
 
-				// Добавление параметра в команду SQL
 				command.Parameters.AddWithValue("@idFlights", idFlights);
 
 				try
 				{
-					// Выполнение команды
 					var rowsAffectedPassengers = command.ExecuteNonQuery();
 
-					// Создание команды SQL для удаления рейса
 					command.CommandText = @"
 					DELETE FROM public.flights
 					WHERE idflight = @idFlights";
 
-					// Выполнение команды
 					var rowsAffectedFlights = command.ExecuteNonQuery();
 					if (rowsAffectedFlights > 0)
 					{
@@ -216,7 +198,6 @@ namespace POLET.Classes
 		}
 		public static void AddFlight(string fromFlight, string whereFlight, string dateFrom, string timeFrom, string dateWhere, string timeWhere, string numberSeats, string transfers, string price)
 		{
-			// Валидация введенных данных
 			if (string.IsNullOrWhiteSpace(fromFlight) || string.IsNullOrWhiteSpace(whereFlight) ||
 				string.IsNullOrWhiteSpace(dateFrom) || string.IsNullOrWhiteSpace(timeFrom) ||
 				string.IsNullOrWhiteSpace(dateWhere) || string.IsNullOrWhiteSpace(timeWhere) ||
@@ -225,7 +206,6 @@ namespace POLET.Classes
 				throw new ArgumentException("Пожалуйста, заполните все обязательные поля.");
 			}
 
-			// Конвертация строковых значений в соответствующие типы данных
 			TimeSpan timeFromValue;
 			TimeSpan timeWhereValue;
 			int numberSeatsValue;
@@ -256,7 +236,6 @@ namespace POLET.Classes
 			{
 				npgsqlConnection.Open();
 
-				// Проверка, существует ли город пересадки
 				if (!string.IsNullOrWhiteSpace(transfers))
 				{
 					var checkTransferCommand = npgsqlConnection.CreateCommand();
@@ -271,7 +250,6 @@ namespace POLET.Classes
 						}
 					}
 
-					// Если город пересадки не найден, добавляем его в таблицу transfers
 					if (transfersValue == null)
 					{
 						var addTransferCommand = npgsqlConnection.CreateCommand();
@@ -281,7 +259,6 @@ namespace POLET.Classes
 					}
 				}
 
-				// Вставка данных о рейсе в таблицу flights
 				var addFlightCommand = npgsqlConnection.CreateCommand();
 				addFlightCommand.CommandText = @"
 				INSERT INTO public.flights (fromFlight, whereFlight, dateFrom, timeFrom, dateWhere, timeWhere, numberSeats, idTransfer, price)
@@ -315,7 +292,6 @@ namespace POLET.Classes
 			{
 				npgsqlConnection.Open();
 
-				// Проверка, существует ли город пересадки
 				int? transfersValue = null;
 				if (flight.Transfers != null && !string.IsNullOrWhiteSpace(flight.Transfers.namecity))
 				{
@@ -331,7 +307,6 @@ namespace POLET.Classes
 						}
 					}
 
-					// Если город пересадки не найден, добавляем его в таблицу transfers
 					if (transfersValue == null)
 					{
 						var addTransferCommand = npgsqlConnection.CreateCommand();
@@ -341,7 +316,6 @@ namespace POLET.Classes
 					}
 				}
 
-				// Обновление данных о рейсе в таблице flights
 				var updateFlightCommand = npgsqlConnection.CreateCommand();
 				updateFlightCommand.CommandText = @"
 				UPDATE public.flights

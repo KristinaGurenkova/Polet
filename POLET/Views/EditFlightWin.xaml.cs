@@ -29,11 +29,9 @@ namespace POLET.Views
 			WhereFromBox.Text = _flight.fromflight;
 			WhereToBox.Text = _flight.whereflight;
 
-			// Разделение даты и времени
 			DateTime dateFrom = _flight.datefrom.Date;
 			DateTime dateWhere = _flight.datewhere.Date;
 
-			// Принудительное обновление интерфейса для DatePicker
 			DatePicker.Dispatcher.Invoke(() =>
 			{
 				DatePicker.SelectedDate = dateFrom != DateTime.MinValue ? (DateTime?)dateFrom : null;

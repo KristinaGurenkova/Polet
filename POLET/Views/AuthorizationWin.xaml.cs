@@ -39,32 +39,26 @@ namespace POLET.Views
 			INNER JOIN roles ON users.idrole = roles.idrole
 			WHERE login = @username AND pass = @password";
 
-			// Добавление параметров в команду SQL
 			command.Parameters.AddWithValue("@username", loginBox.Text);
 			command.Parameters.AddWithValue("@password", passBox.Password);
 
-				// Выполнение команды и обработка результатов
 				using (var reader = command.ExecuteReader())
 				{
-					if (reader.Read()) // Если пользователь найден
+					if (reader.Read()) 
 					{
-						// Получение роли пользователя
 						var role = reader.GetString(4);
 
-						// Открытие соответствующего окна в зависимости от роли пользовател
 						switch (role)
 						{
 							case "Администратор":
-								// Открываем окно для админа
 								AdminWin adminWin = new AdminWin();
 								adminWin.Show();
 								Close();
 							break;
 						}
 					}
-					else // Если пользователь не найден
+					else 
 					{
-						// Вывод сообщения об ошибке
 						MessageBox.Show("Неверный логин или пароль");
 					}
 				}
