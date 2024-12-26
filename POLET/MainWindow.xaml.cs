@@ -57,7 +57,6 @@ namespace POLET
 		{
 			var authorizationWin = new AuthorizationWin();
 			authorizationWin.ShowDialog();
-			this.Close();
 		}
 
 		private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -119,7 +118,6 @@ namespace POLET
 				MessageBox.Show("Пожалуйста, введите корректные данные. Имя, фамилия и отчество не должны содержать цифр и лишних символов.");
 				return;
 			}
-
 			// Получение выбранного рейса из DataGrid
 			if (FlightsDataGrid.SelectedItem is Flights selectedFlight)
 			{
@@ -172,7 +170,6 @@ namespace POLET
 				MessageBox.Show("Пожалуйста, выберите рейс из списка.");
 			}
 		}
-
 		private bool ContainsInvalidCharacters(string input)
 		{
 			foreach (char c in input)

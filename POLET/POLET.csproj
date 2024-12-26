@@ -108,9 +108,6 @@
     <Compile Include="Views\EditFlightWin.xaml.cs">
       <DependentUpon>EditFlightWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\JournalWin.xaml.cs">
-      <DependentUpon>JournalWin.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,10 +133,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditFlightWin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\JournalWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

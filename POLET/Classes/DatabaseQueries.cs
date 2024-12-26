@@ -16,7 +16,7 @@ namespace POLET.Classes
 	{
 		private ObservableCollection<Flights> _flights = new ObservableCollection<Flights> { };
 
-		static string connectionString = "Server=localhost;Port=5432;Database=Polet; User Id = postgres; Password=1234;";
+		static string connectionString = "Server=localhost;Port=5432;Database=Polet2; User Id = postgres; Password=1234;";
 		public ObservableCollection<Flights> GetFlights()
 		{
 			NpgsqlConnection npgsqlConnection = new NpgsqlConnection(connectionString);

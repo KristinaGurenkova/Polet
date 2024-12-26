@@ -53,7 +53,6 @@ D:\ytty\POLET\POLET\obj\Debug\MainWindow.g.cs
 D:\ytty\POLET\POLET\obj\Debug\Views\AddFlightWin.g.cs
 D:\ytty\POLET\POLET\obj\Debug\Views\AdminWin.g.cs
 D:\ytty\POLET\POLET\obj\Debug\Views\AuthorizationWin.g.cs
-D:\ytty\POLET\POLET\obj\Debug\Views\JournalWin.g.cs
 D:\ytty\POLET\POLET\obj\Debug\App.g.cs
 D:\ytty\POLET\POLET\obj\Debug\POLET_MarkupCompile.cache
 D:\ytty\POLET\POLET\obj\Debug\POLET_MarkupCompile.lref
@@ -62,7 +61,6 @@ D:\ytty\POLET\POLET\obj\Debug\MainWindow.baml
 D:\ytty\POLET\POLET\obj\Debug\Views\AddFlightWin.baml
 D:\ytty\POLET\POLET\obj\Debug\Views\AdminWin.baml
 D:\ytty\POLET\POLET\obj\Debug\Views\AuthorizationWin.baml
-D:\ytty\POLET\POLET\obj\Debug\Views\JournalWin.baml
 D:\ytty\POLET\POLET\obj\Debug\POLET.g.resources
 D:\ytty\POLET\POLET\obj\Debug\POLET.Properties.Resources.resources
 D:\ytty\POLET\POLET\obj\Debug\POLET.csproj.GenerateResource.cache

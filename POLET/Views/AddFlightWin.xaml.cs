@@ -23,8 +23,6 @@ namespace POLET.Views
     /// </summary>
     public partial class AddFlightWin : Window
     {
-		private DatabaseQueries _flightService;
-		private ObservableCollection<Flights> Flights = new ObservableCollection<Flights> { };
 		public AddFlightWin()
         {
             InitializeComponent();
@@ -46,6 +44,7 @@ namespace POLET.Views
 					PriceBox.Text
 				);
 				MessageBox.Show("Рейс успешно добавлен!");
+				this.Close();
 			}
 			catch (Exception ex)
 			{

@@ -38,8 +38,6 @@ namespace POLET.Views
 		}
 		private void ExitButton_Click(object sender, RoutedEventArgs e)
 		{
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
             this.Close();
         }
 		public void DeleteMethod()
@@ -66,11 +64,6 @@ namespace POLET.Views
 			AddFlightWin addFlightWin = new AddFlightWin();
 			addFlightWin.ShowDialog();
 			Load();
-		}
-
-		private void Edit_Click(object sender, RoutedEventArgs e)
-		{
-
 		}
 
 		private void Delete_Click(object sender, RoutedEventArgs e)

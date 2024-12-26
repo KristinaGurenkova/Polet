@@ -21,8 +21,7 @@ namespace POLET.Views
     /// </summary>
     public partial class AuthorizationWin : Window
     {
-		static string connectionString = "Server=localhost;Port=5432;Database=Polet; User Id = postgres; Password=1234;";
-
+		static string connectionString = "Server=localhost;Port=5432;Database=Polet2; User Id = postgres; Password=1234;";
 		public AuthorizationWin()
         {
             InitializeComponent();

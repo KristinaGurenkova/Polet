@@ -15,7 +15,6 @@
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить рейс" Click="AddMenu_Click" x:Name="AddMenu"/>
-                    <MenuItem Header="Редактировать рейс" Click="Edit_Click" x:Name="Edit"/>
                     <MenuItem Header="Удалить рейс" Click="Delete_Click" x:Name="Delete"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
@@ -34,6 +33,6 @@
         </DataGrid>
         <Button Background="#FFFFBE49" FontSize="28" FontFamily="./Fonts/#Montserrat SemiBold" x:Name="AddButon" Content="Добавить рейс" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="282" Height="50" Margin="238,953,0,0" Click="AddButon_Click" />
         <Button Background="#FFFFBE49" FontSize="28" FontFamily="./Fonts/#Montserrat SemiBold" x:Name="DeleteButton" Content="Удалить рейс" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="282" Height="50" Margin="1390,953,0,0" Click="DeleteButton_Click" />
-        <Button Background="#FFFFBE49" FontSize="28" FontFamily="./Fonts/#Montserrat SemiBold" x:Name="EditButton" Content="Изменить рейс" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="282" Height="50" Margin="0,945,0,0" Click="EditButton_Click"  />
+        <Button Background="#FFFFBE49" FontSize="28" FontFamily="./Fonts/#Montserrat SemiBold" x:Name="EditButton" Content="Изменить рейс" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="282" Height="50" Margin="0,953,0,0" Click="EditButton_Click"  />
     </Grid>
 </Window>
