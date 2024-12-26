@@ -24,7 +24,6 @@ namespace POLET.Views
     {
 		private DatabaseQueries _flightService;
 		private ObservableCollection<Flights> Flights = new ObservableCollection<Flights> { };
-		
 		public AdminWin()
         {
             InitializeComponent();
@@ -38,13 +37,14 @@ namespace POLET.Views
 		}
 		private void ExitButton_Click(object sender, RoutedEventArgs e)
 		{
-            this.Close();
+			MainWindow mainWindow = new MainWindow();
+			mainWindow.Show();
+			this.Close();
         }
 		public void DeleteMethod()
 		{
 			if (FlightsDataGrid.SelectedItem is Flights selectedFlight)
 			{
-
 				bool updateSucces = DatabaseQueries.DeleteFlights(selectedFlight.idflight);
 
 				if (updateSucces)

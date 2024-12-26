@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POLET.Views"
         mc:Ignorable="d"
-        Title="Авторизация" Height="360" Width="400" ResizeMode="NoResize" Background="#FF85DCE2">
+        Title="Авторизация" Height="385" Width="400" ResizeMode="NoResize" Background="#FF85DCE2">
     <Grid>
         <StackPanel>
             <TextBlock FontFamily="../Fonts/#Montserrat Black" TextAlignment="Center" FontSize="22" Margin="0,44,0,0">АВТОРИЗАЦИЯ</TextBlock>
@@ -28,6 +28,7 @@
                 </PasswordBox.Template>
             </PasswordBox>
             <Button Background="#FFFFBE49" FontFamily="../Fonts/#Montserrat SemiBold" x:Name="logIn" Height="30" Width="300" Margin="0 20 0 0" FontSize="18" Click="logIn_Click">Войти</Button>
+            <Button Background="#FFFFBE49" FontFamily="../Fonts/#Montserrat SemiBold" x:Name="back" Height="30" Width="300" Margin="0 20 0 0" FontSize="18" Click="back_Click">Назад</Button>
         </StackPanel>
     </Grid>
 </Window>

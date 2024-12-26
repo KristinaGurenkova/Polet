@@ -171,7 +171,7 @@ namespace POLET.Classes
 				var command = npgsqlConnection.CreateCommand();
 				command.CommandText = @"
 				DELETE FROM public.passengers
-				WHERE idflights = @idFlights";
+				WHERE idflight = @idFlights";
 
 				command.Parameters.AddWithValue("@idFlights", idFlights);
 

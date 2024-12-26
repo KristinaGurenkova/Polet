@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\ytty\POLET\POLET\obj\Debug\
+D:\ytty\Polet-main\POLET\obj\Debug\
 POLET
 none
 false
 DEBUG;TRACE
-D:\ytty\POLET\POLET\App.xaml
+D:\ytty\Polet-main\POLET\App.xaml
 5-1567153420
 
 16728475000
-131633497543
+131966423131
 MainWindow.xaml;Views\AddFlightWin.xaml;Views\AdminWin.xaml;Views\AuthorizationWin.xaml;Views\EditFlightWin.xaml;
 
-True
+False
 

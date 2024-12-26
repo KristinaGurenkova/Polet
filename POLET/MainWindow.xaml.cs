@@ -16,7 +16,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Npgsql;
 using System.Collections.ObjectModel;
 
 namespace POLET
@@ -28,15 +27,18 @@ namespace POLET
 	{
 		private DatabaseQueries _flightService;
 		private ObservableCollection<Flights> Flights = new ObservableCollection<Flights> { };
-
 		public MainWindow()
 		{
 			InitializeComponent();
 			_flightService = new DatabaseQueries();
 			Flights = _flightService.GetFlights();
-			FlightsDataGrid.ItemsSource = Flights;
+			Load();
 		}
 
+		public void Load()
+		{
+			FlightsDataGrid.ItemsSource = Flights;
+		}
 		private void IncreaseButton_Click(object sender, RoutedEventArgs e)
 		{
 			if (int.TryParse(NumericTextBox.Text, out int value) && value < 100)
@@ -56,7 +58,8 @@ namespace POLET
 		private void AdminLoginButton_Click(object sender, RoutedEventArgs e)
 		{
 			var authorizationWin = new AuthorizationWin();
-			authorizationWin.ShowDialog();
+			this.Close();
+			authorizationWin.Show();
 		}
 
 		private void SearchButton_Click(object sender, RoutedEventArgs e)
